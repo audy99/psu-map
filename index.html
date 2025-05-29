@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    header img {
+      width: 40px;
+      height: 40px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .agency-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .agency-item {
+      background-color: white;
+      padding: 14px 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .agency-item:hover {
+      background-color: #e0efff;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="logo">
+    <h1>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</h1>
+  </header>
+
+  <div class="container">
+    <input type="text" id="searchInput" placeholder="🔍 ค้นหาหน่วยงาน...">
+    <div class="agency-list" id="agencyList"></div>
+  </div>
+
+  <script>
+    const agencies = [
+      { name: "สำนักงานวิทยาเขตสุราษฎร์ธานี", lat: 9.090987274575623, lng: 99.3543788983706 },
+      { name: "งานคลัง", lat: 9.090893145209078, lng: 99.3541411331162 },
+      { name: "งานพัสดุ", lat: 9.090893145209078, lng: 99.3541411331162 },
+      { name: "งานทะเบียน", lat: 9.091336321053419, lng: 99.35418973736438 },
+      { name: "หอประชุม", lat: 9.091840764780816, lng: 99.35470576970394 },
+      { name: "อาคารศูนย์การเรียนรู้", lat: 9.0929118456755, lng: 99.35589459248926 },
+      { name: "ศูนย์สนเทศและการเรียนรู้", lat: 9.094007507882408, lng: 99.35619025604377 },
+      { name: "คณะศิลปศาสตร์และวิทยาการจัดการ", lat: 9.094625748390662, lng: 99.35629808628003 },
+      { name: "ศูนย์ปฏิบัติการวิทยาศาสตร์และเครื่องมือกลาง", lat: 9.095515325936178, lng: 99.35786684230938 },
+      { name: "อาคารสระว่ายน้ำ", lat: 9.096250342010185, lng: 99.35891036073232 }
+    ];
+
+    const listContainer = document.getElementById('agencyList');
+    const searchInput = document.getElementById('searchInput');
+
+    function renderList(filter = "") {
+      listContainer.innerHTML = "";
+      agencies
+        .filter(a => a.name.includes(filter))
+        .forEach(({ name, lat, lng }) => {
+          const item = document.createElement('div');
+          item.className = 'agency-item';
+          item.innerHTML = `<span>${name}</span><span>🗺️</span>`;
+          item.onclick = () => {
+            const mapURL = `https://www.google.com/maps?q=${lat},${lng}`;
+            window.open(mapURL, '_blank');
+          };
+          listContainer.appendChild(item);
+        });
+    }
+
+    searchInput.addEventListener("input", () => {
+      renderList(searchInput.value.trim());
+    });
+
+    renderList();
+  </script>
+
+</body>
+</html>
