@@ -6,86 +6,186 @@
   <title>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f4f8;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
     header {
-      background-color: #007bff;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
       color: white;
-      padding: 16px;
+      padding: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     header img {
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.3);
     }
 
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
+      margin: 0 0 5px 0;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.1rem;
       margin: 0;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .header-text {
+      text-align: center;
     }
 
     .container {
-      padding: 20px;
-      max-width: 600px;
+      padding: 25px;
+      max-width: 650px;
       margin: auto;
       flex: 1;
     }
 
     input[type="text"] {
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-bottom: 16px;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 15px;
+      margin-bottom: 20px;
       font-size: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 8px 32px rgba(0, 123, 255, 0.3);
+      transform: translateY(-2px);
     }
 
     .agency-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .agency-item {
-      background-color: white;
-      padding: 14px 16px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 18px 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background-color 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agency-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s;
     }
 
     .agency-item:hover {
-      background-color: #e0efff;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 123, 255, 0.2);
+      background: linear-gradient(135deg, #fff 0%, #e3f2fd 100%);
+    }
+
+    .agency-item:hover::before {
+      left: 100%;
+    }
+
+    .agency-item:active {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 123, 255, 0.3);
+    }
+
+    .agency-name {
+      font-weight: 500;
+      color: #333;
+      font-size: 1.05rem;
+    }
+
+    .map-icon {
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 4px rgba(0, 123, 255, 0.3));
     }
 
     footer {
-      background-color: #e9ecef;
+      background: linear-gradient(135deg, #343a40 0%, #495057 100%);
       text-align: center;
-      padding: 12px;
+      padding: 16px;
       font-size: 0.9rem;
-      color: #555;
+      color: #f8f9fa;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     }
 
     @media (max-width: 480px) {
       header {
         flex-direction: column;
+        padding: 16px;
       }
+      
+      .container {
+        padding: 20px;
+      }
+      
+      .agency-item {
+        padding: 16px 20px;
+      }
+      
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+    }
+
+    /* Loading animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .agency-item {
+      animation: fadeInUp 0.6s ease-out;
     }
   </style>
 </head>
@@ -93,7 +193,10 @@
 
   <header>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3_CpOVWaD-AwOlmuAQ5GxDiJdzJ8qlc1qCw&s" alt="logo" />
-    <h1>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</h1>
+    <div class="header-text">
+      <h1>แผนที่หน่วยงานต่างๆ</h1>
+      <h2>มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี</h2>
+    </div>
   </header>
 
   <div class="container">
@@ -126,10 +229,14 @@
       listContainer.innerHTML = "";
       agencies
         .filter(a => a.name.includes(filter))
-        .forEach(({ name, lat, lng }) => {
+        .forEach(({ name, lat, lng }, index) => {
           const item = document.createElement("div");
           item.className = "agency-item";
-          item.innerHTML = `<span>${name}</span><span>🗺️</span>`;
+          item.style.animationDelay = `${index * 0.1}s`;
+          item.innerHTML = `
+            <span class="agency-name">${name}</span>
+            <span class="map-icon">🗺️</span>
+          `;
           item.onclick = () => {
             const mapURL = `https://www.google.com/maps?q=${lat},${lng}`;
             window.open(mapURL, "_blank");
