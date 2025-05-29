@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</title>
   <style>
     body {
@@ -10,6 +10,9 @@
       margin: 0;
       padding: 0;
       background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
@@ -23,8 +26,9 @@
     }
 
     header img {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
 
     h1 {
@@ -36,6 +40,7 @@
       padding: 20px;
       max-width: 600px;
       margin: auto;
+      flex: 1;
     }
 
     input[type="text"] {
@@ -69,6 +74,14 @@
       background-color: #e0efff;
     }
 
+    footer {
+      background-color: #e9ecef;
+      text-align: center;
+      padding: 12px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
     @media (max-width: 480px) {
       header {
         flex-direction: column;
@@ -79,14 +92,18 @@
 <body>
 
   <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3_CpOVWaD-AwOlmuAQ5GxDiJdzJ8qlc1qCw&s" alt="logo" />
     <h1>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</h1>
   </header>
 
   <div class="container">
-    <input type="text" id="searchInput" placeholder="🔍 ค้นหาหน่วยงาน...">
+    <input type="text" id="searchInput" placeholder="🔍 ค้นหาหน่วยงาน..." />
     <div class="agency-list" id="agencyList"></div>
   </div>
+
+  <footer>
+    พัฒนาโดย ศูนย์สนเทศและการเรียนรู้ สำนักงานวิทยาเขตสุราษฎร์ธานี
+  </footer>
 
   <script>
     const agencies = [
@@ -102,20 +119,20 @@
       { name: "อาคารสระว่ายน้ำ", lat: 9.096250342010185, lng: 99.35891036073232 }
     ];
 
-    const listContainer = document.getElementById('agencyList');
-    const searchInput = document.getElementById('searchInput');
+    const listContainer = document.getElementById("agencyList");
+    const searchInput = document.getElementById("searchInput");
 
     function renderList(filter = "") {
       listContainer.innerHTML = "";
       agencies
         .filter(a => a.name.includes(filter))
         .forEach(({ name, lat, lng }) => {
-          const item = document.createElement('div');
-          item.className = 'agency-item';
+          const item = document.createElement("div");
+          item.className = "agency-item";
           item.innerHTML = `<span>${name}</span><span>🗺️</span>`;
           item.onclick = () => {
             const mapURL = `https://www.google.com/maps?q=${lat},${lng}`;
-            window.open(mapURL, '_blank');
+            window.open(mapURL, "_blank");
           };
           listContainer.appendChild(item);
         });
