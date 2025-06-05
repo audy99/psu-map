@@ -133,21 +133,25 @@
 
   <script>
     const agencies = [
+      { name: "พระบิดา", lat: 9.094389026425953, lng: 99.3564770850776, img: "https://tour-psu.web.app/src/img/icon/prabidha.jpg" },
       { name: "สำนักงานวิทยาเขตสุราษฎร์ธานี", lat: 9.090987274575623, lng: 99.3543788983706, img: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noHRUQe9FyMnNri9NzBltSbC0i_nQV0jwsw1qsn1q_1gl-brIxhQzrYUPckh_C7EsOjt6QgF7mkfrsvn1UIaoQZWA_kM3DI9jkoxLgz_9eOwVgLp-gdztSVnLDhM3ndeSYdCxfIFA=s680-w680-h510-rw" },
       { name: "งานคลัง", lat: 9.090893145209078, lng: 99.3541411331162, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
       { name: "งานพัสดุ", lat: 9.090893145209078, lng: 99.3541411331162, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
       { name: "งานทะเบียน", lat: 9.091336321053419, lng: 99.35418973736438, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
       { name: "หอประชุม", lat: 9.091840764780816, lng: 99.35470576970394, img: "https://avl.co.th/wp-content/uploads/2020/06/AVL_Project_surat-psu-meeting-room_02-scaled.jpeg" },
       { name: "อาคารศูนย์การเรียนรู้", lat: 9.0929118456755, lng: 99.35589459248926, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
-      { name: "ศูนย์สนเทศและการเรียนรู้", lat: 9.094007507882408, lng: 99.35619025604377, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "ศูนย์สนเทศและการเรียนรู้", lat: 9.094007507882408, lng: 99.35619025604377, img: "https://scontent-bkk1-2.xx.fbcdn.net/v/t39.30808-6/497073660_1165637482027835_3122239518660357390_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGFb3mtDGsCru9iqtzovITU05-x_8EL8WHTn7H_wQvxYer-xEJA1W7fT5NvHfyrKhoJP9-S91TvIP1NazMEwBQl&_nc_ohc=f43A-yP_nkYQ7kNvwEyBlmA&_nc_oc=AdlN-5pNMH6sbKjDoQ95tkQ0v4W9xqGnwrE4U_qdku_xynQv6FxaIGTMSjqQ1rni0Ds&_nc_zt=23&_nc_ht=scontent-bkk1-2.xx&_nc_gid=D-4pgFkA2n7CgEx-n99obg&oh=00_AfNJ7deIMORNJYQQD0BxRlBZ0i4UfleG5XgTiEic8ZSdAw&oe=684723B2" },
       { name: "คณะศิลปศาสตร์และวิทยาการจัดการ", lat: 9.094625748390662, lng: 99.35629808628003, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
       { name: "ศูนย์ปฏิบัติการวิทยาศาสตร์และเครื่องมือกลาง", lat: 9.095515325936178, lng: 99.35786684230938, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
       { name: "อาคารสระว่ายน้ำ", lat: 9.096250342010185, lng: 99.35891036073232, img: "https://tour-psu.web.app/src/img/icon/swimming-pool.png" },
       { name: "ห้องสมุด", lat: 9.091200, lng: 99.354500, img: "https://chumphon.mju.ac.th/goverment/20111119104834_chumphon2/news_31592_5_25670829214028_115667.jpg" },
       { name: "หอชายนางยวนและหอชายเชี่ยวหลาน", lat: 9.099723551256414, lng: 99.35735003882915, img: "https://scontent-bkk1-1.xx.fbcdn.net/v/t39.30808-6/483968896_1152300200029765_8528580032508593502_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeHdN9LYP-kZUlRJgHwMDqph2bCsJrxG59rZsKwmvEbn2iRqMKwZZ0H3i7u_BZRyymJcxtIyRwKaWe19ZrlfysEH&_nc_ohc=6cizG3-PZawQ7kNvwEqQoyF&_nc_oc=Adku5gCfFoMEGL9yQLU36-OeXnyCnI5chTDNlVuDX2BiqQVVNNG7tzjCt6mUkwU14tQ&_nc_zt=23&_nc_ht=scontent-bkk1-1.xx&_nc_gid=QBdB7jXTR-i7sy92ptqO7w&oh=00_AfO1-Nqi41R7rx09NZo6n-b3owzqJzY6f4zyrqmjmjemRw&oe=6846DF26" },
+      { name: "หอพักสหกรณ์", lat: 9.098467680422793, lng: 99.35653877584724, img: "https://tour-psu.web.app/src/img/icon/shelter.jpg" },
+      { name: "ศูนย์กีฬาและสุขภาพ", lat: 9.096885221177075, lng: 99.35800192087308, img: "https://tour-psu.web.app/src/img/icon/gym.jpg" },
+      { name: "สนามกีฬากลาง", lat: 9.094366514213768, lng: 99.35895812824722, img: "https://tour-psu.web.app/src/img/icon/prabidha_Field.png" },
+      { name: "โรงอาหารหอใน", lat: 9.09840676578167, lng: 99.3571154508129, img: "https://tour-psu.web.app/src/img/icon/canteen.jpg" },
       { name: "อาคารวิทยาศาสตร์", lat: 9.092300, lng: 99.355600, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" }
     ];
-
     const listContainer = document.getElementById("agencyList");
 
     function renderList() {
