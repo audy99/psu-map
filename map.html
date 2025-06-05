@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f5f7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #004e92;
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 5px 0;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .header-text {
+      text-align: center;
+    }
+
+    .container {
+      padding: 25px;
+      max-width: 800px;
+      margin: auto;
+      flex: 1;
+    }
+
+    .agency-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      justify-items: center;
+      margin-top: 20px;
+    }
+
+    .agency-item {
+      background: #fff;
+      border-radius: 15px;
+      width: 100%;
+      padding: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .agency-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .agency-name {
+      font-weight: 500;
+      color: #333;
+      font-size: 1.05rem;
+    }
+
+    .agency-item:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background: #333;
+      text-align: center;
+      padding: 16px;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .agency-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .agency-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3_CpOVWaD-AwOlmuAQ5GxDiJdzJ8qlc1qCw&s" alt="logo" />
+    <div class="header-text">
+      <h1>แผนที่หน่วยงานต่างๆ</h1>
+      <h2>มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี</h2>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="agency-list" id="agencyList"></div>
+  </div>
+
+  <footer>
+    พัฒนาโดย ศูนย์สนเทศและการเรียนรู้ สำนักงานวิทยาเขตสุราษฎร์ธานี
+  </footer>
+
+  <script>
+    const agencies = [
+      { name: "สำนักงานวิทยาเขตสุราษฎร์ธานี", lat: 9.090987274575623, lng: 99.3543788983706, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "งานคลัง", lat: 9.090893145209078, lng: 99.3541411331162, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "งานพัสดุ", lat: 9.090893145209078, lng: 99.3541411331162, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "งานทะเบียน", lat: 9.091336321053419, lng: 99.35418973736438, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "หอประชุม", lat: 9.091840764780816, lng: 99.35470576970394, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "อาคารศูนย์การเรียนรู้", lat: 9.0929118456755, lng: 99.35589459248926, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "ศูนย์สนเทศและการเรียนรู้", lat: 9.094007507882408, lng: 99.35619025604377, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "คณะศิลปศาสตร์และวิทยาการจัดการ", lat: 9.094625748390662, lng: 99.35629808628003, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "ศูนย์ปฏิบัติการวิทยาศาสตร์และเครื่องมือกลาง", lat: 9.095515325936178, lng: 99.35786684230938, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "อาคารสระว่ายน้ำ", lat: 9.096250342010185, lng: 99.35891036073232, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "ห้องสมุด", lat: 9.091200, lng: 99.354500, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" },
+      { name: "อาคารวิทยาศาสตร์", lat: 9.092300, lng: 99.355600, img: "https://tour-psu.web.app/src/img/icon/lc.jpg" }
+    ];
+
+    const listContainer = document.getElementById("agencyList");
+
+    function renderList() {
+      listContainer.innerHTML = "";
+      agencies.forEach(({ name, lat, lng, img }, index) => {
+        const item = document.createElement("div");
+        item.className = "agency-item";
+        item.style.animationDelay = `${index * 0.1}s`;
+        item.innerHTML = `
+          <img src="${img}" alt="${name}" />
+          <span class="agency-name">${name}</span>
+        `;
+        item.onclick = () => {
+          const mapURL = `https://www.google.com/maps?q=${lat},${lng}`;
+          window.open(mapURL, "_blank");
+        };
+        listContainer.appendChild(item);
+      });
+    }
+
+    renderList();
+  </script>
+
+</body>
+</html>
