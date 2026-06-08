@@ -116,13 +116,22 @@
 <body>
 
   <header>
-    <img src="https://img1.pic.in.th/images/60-TH-SHORT--01.png" alt="logo" />
+  <img src="https://img1.pic.in.th/images/60-TH-SHORT--01.png" alt="logo" class="logo" />
     <div class="header-text">
       <h1>แผนที่หน่วยงานต่างๆ</h1>
       <h2>มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี</h2>
     </div>
   </header>
-
+<style>
+.logo {
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  width: 100px; /* ปรับขนาดได้ */
+  height: 100px;
+  object-fit: contain;
+}
+</style>
   <div class="container">
     <div class="agency-list" id="agencyList"></div>
   </div>
