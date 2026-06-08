@@ -1,144 +1,163 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f5f7;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    header {
-      background: #004e92;
-      color: white;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
+<title>แผนที่หน่วยงานวิทยาเขตสุราษฎร์ธานี</title>
 
-    header img {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin: 0 0 5px 0;
-      font-weight: 600;
-    }
-
-    h2 {
-      font-size: 1.1rem;
-      margin: 0;
-      font-weight: 400;
-    }
-
-    .header-text {
-      text-align: center;
-    }
-
-    .container {
-      padding: 25px;
-      max-width: 1000px;
-      margin: auto;
-      flex: 1;
-    }
-
-    .agency-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);  /* 4 columns on desktop */
-      gap: 15px;
-      justify-items: center;
-      margin-top: 20px;
-    }
-
-    .agency-item {
-      background: #fff;
-      border-radius: 15px;
-      width: 100%;
-      padding: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .agency-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .agency-name {
-      font-weight: 500;
-      color: #333;
-      font-size: 1.05rem;
-    }
-
-    .agency-item:hover {
-      transform: translateY(-5px);
-    }
-
-    footer {
-      background: #333;
-      text-align: center;
-      padding: 16px;
-      font-size: 0.9rem;
-      color: white;
-    }
-
-    @media (max-width: 1024px) {
-      .agency-list {
-        grid-template-columns: repeat(2, 1fr);  /* 2 columns on tablet and mobile */
-      }
-    }
-
-    @media (max-width: 480px) {
-      .agency-list {
-        grid-template-columns: 1fr;  /* 1 column on very small devices */
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-  <img src="https://img1.pic.in.th/images/60-TH-SHORT--01.png" alt="logo" class="logo" />
-    <div class="header-text">
-      <h1>แผนที่หน่วยงานต่างๆ</h1>
-      <h2>มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี</h2>
-    </div>
-  </header>
 <style>
-.logo {
-  background-color: white;
-  border-radius: 50%;
-  padding: 10px;
-  width: 100px; /* ปรับขนาดได้ */
-  height: 100px;
-  object-fit: contain;
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    margin:0;
+    padding:0;
+    background:#f4f5f7;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+/* Header */
+header{
+    background:#004e92;
+    color:#fff;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo{
+    width:80px;
+    height:80px;
+    background:#fff;
+    border-radius:50%;
+    padding:8px;
+    object-fit:contain;
+    box-sizing:border-box;
+    flex-shrink:0;
+}
+
+.header-text{
+    text-align:center;
+}
+
+.header-text h1{
+    margin:0 0 5px;
+    font-size:1.5rem;
+    font-weight:600;
+}
+
+.header-text h2{
+    margin:0;
+    font-size:1.1rem;
+    font-weight:400;
+}
+
+/* Content */
+.container{
+    flex:1;
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
+    width:100%;
+}
+
+.agency-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.agency-item{
+    background:#fff;
+    border-radius:15px;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 6px 15px rgba(0,0,0,.1);
+    transition:all .3s ease;
+}
+
+.agency-item:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.agency-item img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.agency-name{
+    font-size:1rem;
+    font-weight:500;
+    color:#333;
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:#fff;
+    text-align:center;
+    padding:16px;
+    font-size:.9rem;
+}
+
+/* Responsive */
+@media (max-width:1024px){
+    .agency-list{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width:768px){
+    header{
+        flex-direction:column;
+    }
+
+    .logo{
+        width:70px;
+        height:70px;
+    }
+}
+
+@media (max-width:480px){
+    .agency-list{
+        grid-template-columns:1fr;
+    }
 }
 </style>
-  <div class="container">
-    <div class="agency-list" id="agencyList"></div>
-  </div>
+</head>
 
-  <footer>
+<body>
+
+<header>
+    <img
+        src="https://img1.pic.in.th/images/60-TH-SHORT--01.png"
+        alt="PSU Logo"
+        class="logo"
+    >
+
+    <div class="header-text">
+        <h1>แผนที่หน่วยงานต่าง ๆ</h1>
+        <h2>มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี</h2>
+    </div>
+</header>
+
+<div class="container">
+    <div class="agency-list" id="agencyList"></div>
+</div>
+
+<footer>
     พัฒนาโดย ศูนย์สนเทศและการเรียนรู้ สำนักงานวิทยาเขตสุราษฎร์ธานี
-  </footer>
+</footer>
 
   <script>
     const agencies = [
